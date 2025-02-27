@@ -11,22 +11,44 @@ public class SlinkyScript : MonoBehaviour
     private bool isMoving = false;
     public int gridX, gridY;
     public SkinnedMeshRenderer skinnedMesh;
+    private GridController.SlinkyData _slinkyData;
+    public float slinkyBaseLength = 2f;
+    public Transform bone1, bone2, bone3;
     
 
-    public void Initialize(GridController manager, int x, int y)
+    public void Initialize(GridController manager, GridController.SlinkyData slinkyData)
     {
         gameManager = manager;
-        gridX = x;
-        gridY = y;
-        transform.position = new Vector2(gridX * gameManager.gridDistance, gridY * gameManager.gridDistance) - new Vector2((gameManager.gridWidth - 1) * gameManager.gridDistance / 2, (gameManager.gridHeight - 1) * gameManager.gridDistance / 2);
-        gameManager.grid[gridX, gridY] = this;
+        _slinkyData = slinkyData;
+        // transform.position = new Vector2(gridX * gameManager.gridDistance, gridY * gameManager.gridDistance) - new Vector2((gameManager.gridWidth - 1) * gameManager.gridDistance / 2, (gameManager.gridHeight - 1) * gameManager.gridDistance / 2);
+        // gameManager.grid[gridX, gridY] = this;
+        StretchSlinky();
+    }
+    public void StretchSlinky()
+    {
+        // 1. Başlangıç noktasını ayarla
+        // transform.position = new Vector3(startGrid.x, 0, startGrid.y);
+
+        // Mevcut mesafeyi hesapla
+        float currentDistance = Vector3.Distance(gameManager.GetGridPos(_slinkyData.grid1Data), gameManager.GetGridPos(_slinkyData.grid2Data));
+
+
+        // Hedef yönü (rotation etkilemeden)
+        Vector3 direction = (gameManager.GetGridPos(_slinkyData.grid2Data) - transform.position).normalized;
+        
+        // 4. Bone başına eklenecek mesafeyi belirle (toplam ekleme / 3)
+        Vector3 boneStep = (direction * (currentDistance-slinkyBaseLength)) / 3f;
+        
+        bone1.position += boneStep;
+        bone2.position += boneStep;
+        bone3.position += boneStep;
     }
 
     void OnMouseDown()
     {
         if (!isMoving)
         {
-            MoveToNextAvailablePosition();
+            // MoveToNextAvailablePosition();
         }
     }
 
@@ -34,11 +56,9 @@ public class SlinkyScript : MonoBehaviour
     {
         for (int y = gridY + 1; y < gameManager.gridHeight; y++)
         {
-            if (gameManager.grid[gridX, y] == null)
-            {
-                gameManager.grid[gridX, gridY] = null;
+                // gameManager.grid[gridX, gridY] = null;
                 gridY = y;
-                gameManager.grid[gridX, gridY] = this;
+                // gameManager.grid[gridX, gridY] = this;
                 targetPosition = new Vector2(gridX * gameManager.gridDistance, gridY * gameManager.gridDistance) - new Vector2((gameManager.gridWidth - 1) * gameManager.gridDistance / 2, (gameManager.gridHeight - 1) * gameManager.gridDistance / 2);
                 isMoving = true;
 
@@ -51,7 +71,6 @@ public class SlinkyScript : MonoBehaviour
                     .Join(transform.DOScaleY(1f, moveSpeed / 4))
                     .OnComplete(() => isMoving = false);
                 break;
-            }
         }
     }
 }

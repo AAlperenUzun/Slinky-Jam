@@ -417,6 +417,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 941626808}
     m_Modifications:
+    - target: {fileID: 5589892525487282342, guid: 63c89b16a0ed92a4ab9454479a65fbcf, type: 3}
+      propertyPath: m_text
+      value: LEVEL 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589892525487282342, guid: 63c89b16a0ed92a4ab9454479a65fbcf, type: 3}
+      propertyPath: m_fontSize
+      value: 40.35
+      objectReference: {fileID: 0}
     - target: {fileID: 7237829680927521181, guid: 63c89b16a0ed92a4ab9454479a65fbcf, type: 3}
       propertyPath: m_Name
       value: Panel (2)
@@ -707,38 +715,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411885428}
   m_CullTransparentMesh: 1
---- !u!1 &634670384
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 634670385}
-  m_Layer: 0
-  m_Name: Slinky
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &634670385
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634670384}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4200555993183360367}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &714987387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,6 +1170,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 941626808}
     m_Modifications:
+    - target: {fileID: 5589892525487282342, guid: 63c89b16a0ed92a4ab9454479a65fbcf, type: 3}
+      propertyPath: m_text
+      value: LEVEL 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589892525487282342, guid: 63c89b16a0ed92a4ab9454479a65fbcf, type: 3}
+      propertyPath: m_fontSize
+      value: 40.35
+      objectReference: {fileID: 0}
     - target: {fileID: 7237829680927521181, guid: 63c89b16a0ed92a4ab9454479a65fbcf, type: 3}
       propertyPath: m_Name
       value: Panel (1)
@@ -1334,7 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e3f406737de3b8409a183afa6ca5c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slinkyPrefab: {fileID: 7029535673900849080, guid: c63450d8461a5ac44abc83464c14feba, type: 3}
+  slinkyPrefab: {fileID: 5007362101473010572, guid: c4f6f050178db784d8d79442c3e51d42, type: 3}
   gridModelPrefab: {fileID: 7029535673900849080, guid: c63450d8461a5ac44abc83464c14feba, type: 3}
   gridWidth: 6
   gridHeight: 6
@@ -1342,6 +1326,38 @@ MonoBehaviour:
   spawnPoint: {fileID: 1109665997}
   spawnDelay: 0.5
   scoreText: {fileID: 0}
+  skinnedMesh: {fileID: 0}
+  slinkyParent: {fileID: 1109665997}
+  slinkyList:
+  - grid1Data: {x: 1, y: 1}
+    grid2Data: {x: 4, y: 4}
+    color: 0
+    orderInLayer: 0
+  - grid1Data: {x: 5, y: 2}
+    grid2Data: {x: 0, y: 3}
+    color: 2
+    orderInLayer: 0
+  - grid1Data: {x: 0, y: 3}
+    grid2Data: {x: 4, y: 3}
+    color: 3
+    orderInLayer: 0
+  colorLists:
+  - color: 0
+    mat: {fileID: 2100000, guid: f50b19c1b0be73c40b9823eb0a2f4f41, type: 2}
+    colorScore: 50
+  - color: 1
+    mat: {fileID: 2100000, guid: 1f4fd9856f513b3429323f8fc83da261, type: 2}
+    colorScore: 0
+  - color: 2
+    mat: {fileID: 2100000, guid: 0aab64bc73ca0a8439b0fb9c151eb488, type: 2}
+    colorScore: 0
+  - color: 3
+    mat: {fileID: 2100000, guid: 8b64af407f0fe94438c68b3c64d74e33, type: 2}
+    colorScore: 0
+  - color: 4
+    mat: {fileID: 2100000, guid: a857cc6f727d0414782c61f4ae2cc630, type: 2}
+    colorScore: 0
+  createdSlinkies: []
 --- !u!1 &1169668915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1577,7 @@ MonoBehaviour:
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.2
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1631,7 +1647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 4
+  m_text: Level 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e930d1562f158a4fb88ffc1a6262a1e, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 7e930d1562f158a4fb88ffc1a6262a1e, type: 2}
@@ -1812,68 +1828,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8571096955583463620, guid: 63c89b16a0ed92a4ab9454479a65fbcf, type: 3}
   m_PrefabInstance: {fileID: 2230856828762957283}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4085785173628984090
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 634670385}
-    m_Modifications:
-    - target: {fileID: 9004144316874785988, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_Name
-      value: SlinkyModel
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.887
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
---- !u!4 &4200555993183360367 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9026607975851155160, guid: fa29e09bc4f627c4c9c71c95dc061656, type: 3}
-  m_PrefabInstance: {fileID: 4085785173628984090}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8672391649916581672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1948,4 +1902,3 @@ SceneRoots:
   - {fileID: 945329468}
   - {fileID: 1007583477}
   - {fileID: 1109665997}
-  - {fileID: 634670385}
