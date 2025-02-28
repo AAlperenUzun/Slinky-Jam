@@ -9,8 +9,11 @@ public class GridController : MonoBehaviour
     public GameObject gridModelPrefab;
     public int gridWidth = 5;
     public int gridHeight = 5;
+    public int collectGridWidth = 7;
+    public int collectGridHeight = 1;
     public float gridDistance = 1.0f;
     public Transform spawnPoint;
+    public Transform collectPoint;
     public float spawnDelay = 0.5f;
     public TMPro.TextMeshProUGUI scoreText;
     private int score = 0;
@@ -49,7 +52,8 @@ public class GridController : MonoBehaviour
     public Transform slinkyParent;
     public List<SlinkyData> slinkyList = new List<SlinkyData>();
     public List<ColorList> colorLists;
-    private GridSlot[,] grid;
+    private GridSlot[,] grid=new GridSlot[0,0];
+    private GridSlot[,] collectGrid=new GridSlot[0,0];
     public List<SlinkyScript> createdSlinkies = new List<SlinkyScript>();
 
     void Start()
@@ -67,9 +71,9 @@ public class GridController : MonoBehaviour
     {
         Vector2 centerOffset = new Vector2((gridWidth - 1) * gridDistance / 2, -(gridHeight - 1) * gridDistance / 2);
         grid = new GridSlot[gridWidth, gridHeight];
-        for (int y = 0; y < gridWidth; y++)
+        for (int y = 0; y < gridHeight; y++)
         {
-            for (int x = 0; x < gridHeight; x++)
+            for (int x = 0; x < gridWidth; x++)
             {
                 Vector2 gridPosition = new Vector2(x * gridDistance, -y * gridDistance) - centerOffset;
                 Vector3 lastGridPos= new Vector3(gridPosition.x, 0, gridPosition.y);
@@ -77,6 +81,20 @@ public class GridController : MonoBehaviour
                 Instantiate(gridModelPrefab, lastGridPos, Quaternion.identity);
             }
         }
+        
+        centerOffset = new Vector2((collectGridWidth - 1) * gridDistance / 2, -(collectGridHeight - 1) * gridDistance / 2);
+        collectGrid = new GridSlot[collectGridWidth, collectGridHeight];
+        for (int y = 0; y < collectGridHeight; y++)
+        {
+            for (int x = 0; x < collectGridWidth; x++)
+            {
+                Vector2 gridPosition = new Vector2(x * gridDistance, -y * gridDistance) - centerOffset;
+                Vector3 lastGridPos= new Vector3(gridPosition.x, 0, gridPosition.y)+collectPoint.position;
+                collectGrid[x, y] = new GridSlot { gridPosition = lastGridPos};
+                Instantiate(gridModelPrefab, lastGridPos, Quaternion.identity);
+            }
+        }
+        
     }
     
     public Material GetMaterialByColor(Colors targetColor)

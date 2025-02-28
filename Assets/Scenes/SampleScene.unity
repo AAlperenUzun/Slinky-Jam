@@ -1322,8 +1322,11 @@ MonoBehaviour:
   gridModelPrefab: {fileID: 7029535673900849080, guid: c63450d8461a5ac44abc83464c14feba, type: 3}
   gridWidth: 6
   gridHeight: 6
+  collectGridWidth: 7
+  collectGridHeight: 1
   gridDistance: 1.5
   spawnPoint: {fileID: 1109665997}
+  collectPoint: {fileID: 1372206454}
   spawnDelay: 0.5
   scoreText: {fileID: 0}
   skinnedMesh: {fileID: 0}
@@ -1337,8 +1340,8 @@ MonoBehaviour:
     grid2Data: {x: 0, y: 3}
     color: 2
     orderInLayer: 0
-  - grid1Data: {x: 0, y: 3}
-    grid2Data: {x: 4, y: 3}
+  - grid1Data: {x: 0, y: 5}
+    grid2Data: {x: 2, y: 5}
     color: 3
     orderInLayer: 0
   colorLists:
@@ -1452,6 +1455,18 @@ PrefabInstance:
     - target: {fileID: 4814353865920593628, guid: 5e65ac72d5ac10740aef414dfe6486db, type: 3}
       propertyPath: m_Name
       value: GridTableModel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583711696011560068, guid: 5e65ac72d5ac10740aef414dfe6486db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583711696011560068, guid: 5e65ac72d5ac10740aef414dfe6486db, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583711696011560068, guid: 5e65ac72d5ac10740aef414dfe6486db, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5583711696011560068, guid: 5e65ac72d5ac10740aef414dfe6486db, type: 3}
       propertyPath: m_LocalPosition.x
